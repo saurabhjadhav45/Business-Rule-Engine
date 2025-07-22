@@ -20,6 +20,7 @@
     "react-router": "^6.24.1",
     "react-router-dom": "^6.24.1",
     "react-transition-group": "^4.4.5",
+    "reactflow": "^11.11.4",
     "redux-persist": "^6.0.0",
     "rfs": "^10.0.0",
     "styled-components": "^6.1.11",
@@ -53,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-docs": "^9.0.16",
     "@storybook/addon-links": "^9.0.16",
     "@storybook/react-vite": "^9.0.16",
     "@testing-library/jest-dom": "^6.4.6",
@@ -88,8 +90,7 @@
     "typescript": "^5.5.3",
     "vite": "^5.3.3",
     "vite-plugin-svgr": "^4.3.0",
-    "vitest": "^1.6.0",
-    "@storybook/addon-docs": "^9.0.16"
+    "vitest": "^1.6.0"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [

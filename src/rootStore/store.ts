@@ -2,6 +2,7 @@
 import alertReducer from '@core/store/alertReducer';
 import loadingReducer from '@core/store/loadingReducer';
 import authReducer from '@pages/auth/store/reducer';
+import ruleDetailsReducer from '@pages/rule-details/store/reducer';
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import {persistReducer, persistStore} from 'redux-persist';
 import storage from 'redux-persist/lib/storage/session';
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
   auth: authReducer,
   loader: loadingReducer,
   alert: alertReducer,
+  ruleDetails: ruleDetailsReducer,
 });
 
 const persistConfig = {

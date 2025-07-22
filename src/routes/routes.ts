@@ -23,6 +23,13 @@ const ROUTES = [
     name: 'NewPassword',
     isPrivate: false,
   },
+  {
+    path: '/rule/:id',
+    exact: true,
+    component: lazy(() => import('../pages/rule-details')),
+    name: 'RuleDetails',
+    isPrivate: true,
+  },
 ];
 
 export default ROUTES;
