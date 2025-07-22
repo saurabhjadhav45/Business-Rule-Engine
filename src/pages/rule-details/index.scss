@@ -1,0 +1,25 @@
+.rule-details-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  .rule-content {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+
+    .left-panel {
+      width: 300px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      background-color: #f9fafb;
+      border-right: 1px solid #e5e7eb;
+    }
+
+    .flow-panel {
+      flex: 1;
+    }
+  }
+}
