@@ -1,0 +1,68 @@
+@use "../../../utils/main.scss" as *;
+.toast-container {
+  position: fixed;
+  @include rfs(5px, border-radius);
+  width: auto;
+  @include flex-item(row, center, center, _, _);
+  @include margin(10px 30%);
+  z-index: 100;
+  .toast-text-container {
+    width: 100%;
+  }
+  .close-btn-small {
+    border: none;
+  }
+}
+
+.alert-wrapper {
+  @include flex-item(_, center, center, _, _);
+  .bg-danger {
+    background-color: $error-background-color;
+    border: 1px solid $error-border-color;
+    .text-white {
+      color: $error-color;
+    }
+  }
+  .bg-warning {
+    background-color: $warning-background-color;
+    border: 1px solid $warning;
+    .text-white {
+      color: $warning-color;
+    }
+  }
+
+  .bg-success {
+    background-color: $success-background;
+    border: 1px solid $success-border;
+    .text-white {
+      color: $success-color;
+    }
+  }
+  .bg-info {
+    background-color: $note-background;
+    border: 1px solid $note-border;
+    .text-white {
+      color: $tertiary;
+    }
+  }
+  .default {
+    .bg-success {
+      background-color: $default-background;
+      border: 1px solid $default-border;
+      .text-white {
+        color: $text-color;
+      }
+    }
+  }
+  .gst-success {
+    .bg-success {
+      background-color: $gst-success-background;
+      .text-white {
+        color: $white;
+      }
+    }
+  }
+}
+.toast-content {
+  width: inherit;
+}

@@ -1,0 +1,98 @@
+$sizesValues: (
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%,
+  auto: auto,
+);
+
+$sizes: (
+  'width': (
+    property: width,
+    class: w,
+    values: $sizesValues,
+  ),
+  'max-width': (
+    property: max-width,
+    class: max-w,
+    values: (
+      100: 100%,
+    ),
+  ),
+  'viewport-width': (
+    property: width,
+    class: vw,
+    values: (
+      100: 100vw,
+    ),
+  ),
+  'min-viewport-width': (
+    property: min-width,
+    class: min-vw,
+    values: (
+      100: 100vw,
+    ),
+  ),
+  'height': (
+    property: height,
+    class: h,
+    values: $sizesValues,
+  ),
+  'max-height': (
+    property: max-height,
+    class: mh,
+    values: (
+      100: 100%,
+    ),
+  ),
+  'viewport-height': (
+    property: height,
+    class: vh,
+    values: (
+      100: 100vh,
+    ),
+  ),
+  'min-viewport-height': (
+    property: min-height,
+    class: min-vh,
+    values: (
+      100: 100vh,
+    ),
+  ),
+);
+
+@each $key, $map in $sizes {
+  $class: map-get($map, 'class');
+  $property: map-get($map, 'property');
+  $values: map-get($map, 'values');
+
+  @each $k, $v in $values {
+    @if ($k== 'default') {
+      .#{$class} {
+        #{$property}: $v;
+      }
+    } @else {
+      .#{$class}-#{$k} {
+        #{$property}: $v;
+      }
+    }
+  }
+}
+
+@for $i from 1 through 1000 {
+  .w-#{$i}px {
+    width: $i * 1px;
+  }
+  .h-#{$i}px {
+    height: $i * 1px;
+  }
+}
+
+@for $i from 1 through 100 {
+  .w-#{$i} {
+    width: $i * 1%;
+  }
+  .h-#{$i} {
+    height: $i * 1%;
+  }
+}

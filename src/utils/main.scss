@@ -1,0 +1,17 @@
+// rfs import and forward
+@forward "../../node_modules/rfs/scss.scss";
+
+// variables and functions
+@forward "./_gstVariables";
+
+// base and layot
+@forward "./_breakpoints";
+@forward "./_mixins";
+@forward "./_grid";
+@forward "./_sizes";
+
+//colors
+@forward "./_gstColors";
+
+//utils(margin,padding,opacity)
+@forward "./_utilities";

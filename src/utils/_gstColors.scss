@@ -1,0 +1,137 @@
+$primary: #f15929;
+$primary-hover: #d94a1c;
+$primary-background-hover: #ce5333;
+$primary-border: #d5e7e8;
+$primary-border-light: #e7f3f3;
+$secondary: #cbe5e6;
+$secondary-text: #012d66;
+$secondary-dark: #c2e2e3;
+$secondary-light: #d2eded;
+$secondary-background: #eef2f2;
+$secondary-background-1: #fcfcfc;
+$tertiary: #002662;
+$tertiary-dark: #02346a;
+$tertiary-light: #384e6c;
+$tertiary-link: #102662;
+$tertiary-hover: #001d4a;
+$quaternary: #1d4da1;
+$warning: #f8b226;
+$warning-dark: #f3a50f;
+$success: #2cb544;
+$error: #fe4242;
+$information: #408dfc;
+$information-light: #3e8ff8;
+$information-sky: #02afd8;
+$blue-hover: #3065aa;
+$table-head-primary: #36536f;
+$table-head-1: #5478b5;
+$table-head-2: #3b547f;
+$table-head-3: #2f3a49;
+$table-cell-background: #f6fbff;
+$white: #ffffff;
+$disable-color: #eeeeee;
+$label-color: #878787;
+$text-color: #262626;
+$title-color: #161616;
+$text-mute: #737373;
+$text-light: #666666;
+$text-disable: #e7efef;
+$black: #000000;
+$base-background: #f1f0ee;
+$summary-card-label-color: #ffffff8f;
+$Link-color: #408dfc;
+$checkbox-hover-background: #ccc;
+$heading-color: #363636;
+
+// same for all alerts
+$alert-box-shadow: 0px 1px 2px #d5e7e8a6;
+// error toast
+$error-background-color: #ffecec;
+$error-border-color: #ffacac;
+$error-color: #e12626;
+// warning toast
+$warning-background-color: #fffbc7;
+$warning-color: #926200;
+//note toast
+$note-background: #c9eeff;
+$note-border: #7ad7f9;
+
+// default toast
+$default-background: #cbe4e5;
+$default-border: #95b4b580;
+
+// gst-success toast
+$gst-success-background: #2cb445;
+
+//success toast
+$success-background: #d6ffde;
+$success-border: #62e279;
+$success-color: #0f8e25; // icon color & content color & icon opacity 0.2 & title color bold
+$btn-yellow-hover: #d4900e;
+$btn-green-hover: #1c8433;
+$btn-maroon-hover: #ac4327;
+$btn-dark-blue-hover: #28384d;
+$btn-box-shadow-hover: #00000029;
+
+$gstin-details-background: #f2f7f8;
+// box-shadow color login
+$box-shadow-color: #d5e7e8a6;
+
+$btn-colors: (
+  "primary": #f15929,
+  "secondary": #cbe5e6,
+  "tertiary": #002662,
+  "alert": #f8b226,
+  "success": #2cb544,
+  "information": #3e8ff8,
+  "error": #ce5333,
+  "unknown": #384e6c,
+
+  "primary-hover": #d94a1c,
+  "secondary-hover": #cbe5e6,
+  "tertiary-hover": #001d4a,
+  "alert-hover": #d4900e,
+  "success-hover": #1c8433,
+  "information-hover": #3065aa,
+  "error-hover": #ac4327,
+  "unknown-hover": #384e6c,
+
+  "tour-guide": #1d4da1,
+  "pagination": #f2f2f2,
+  "pagination-font": #8599b3,
+
+  //Premium button add gradiant
+  "premium-gradient-one": #4682bf,
+  "premium-gradient-two": #002762,
+
+  "primary-clicked": #f1724a,
+  "secondary-font": #012d66,
+);
+// function to map button colors
+@function btn-colors($val) {
+  @return map-get($btn-colors, $val);
+}
+
+$dark-grey: #555;
+$modal-box-shadow: #00000038; //modal box shadow color
+$card-label-color: #e7f1f2;
+$product-card-box-shadow: 0px 3px 6px #408dfc33; //modal box shadow color
+$forgot-box-shadow: 0px 3px 6px #d5e7e8a6;
+$product-subscription-box-shadow: 0px 3px 5px #0000001a;
+$loader-border: #e8532b;
+$loader-background: #112762;
+$avatar-border: #e8f2f3;
+$breadcrumb-separator: #cccccc;
+$link-default: #0000ee;
+$link-black: #000000;
+$product-header-border: #dfedee;
+$primary-bg: #f1f2f6;
+$bread-crumb-title: #444444;
+$input-border: #d5e7e8;
+$dropdown-hover: #002762;
+$label-background: #efefef;
+$light-grey: #434343;
+$dark-blue: #002762;
+$border-grey: #29bdb3;
+$primary-grey: #1d726c;
+$light-white: #bff1ee;

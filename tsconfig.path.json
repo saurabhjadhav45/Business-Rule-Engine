@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "baseUrl": "./src",
+      "paths": {
+        "@common/*": ["common/*"],
+        "@shared/*": ["shared/*"],
+        "@core/*": ["core/*"],
+        "@assets/*": ["assets/*"],
+        "@modules/*": ["modules/*"],
+        "@submodules/*": ["modules/src/shared-components/*"],
+        "@store": ["rootStore/store"],
+        "@pages/*": ["pages/*"],
+      }
+  }
+} 
+

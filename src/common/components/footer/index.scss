@@ -1,0 +1,38 @@
+@use "../../../utils/main.scss" as *;
+
+.main-footer {
+  width: 100%;
+  position: fixed;
+  background-color: rgb(193, 207, 233);
+  bottom: 0;
+
+  @media screen and (max-height: map-get($breakpoints,"md")) {
+    position: relative;
+  }
+
+  .footer-container {
+    @include padding(14px);
+    position: relative;
+    letter-spacing: 0.7px;
+
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      // color: $text-color;
+      font-size: 15px;
+
+      .privacy-feedback {
+        font-size: 13px;
+        opacity: 0.6;
+      }
+    }
+
+    .footer-logo {
+      position: absolute;
+      right: 36px;
+      top: 14px;
+    }
+  }
+}

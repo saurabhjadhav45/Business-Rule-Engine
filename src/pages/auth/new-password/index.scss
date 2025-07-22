@@ -1,0 +1,173 @@
+.new-password-bg {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.new-password-wrapper {
+  display: flex;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  .new-password-left {
+    width: 33.33%;
+    color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+
+    .logo-block {
+      margin-bottom: 50px;
+      .bank-name {
+        font-size: 18px;
+        font-weight: 600;
+      }
+    }
+    .intro-text {
+      .headline {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        line-height: 1.5;
+      }
+      .description {
+        font-size: 16px;
+        margin-bottom: 20px;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  .new-password-right {
+    width: 66.66%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    border-top-left-radius: 24px;
+
+    .form-header {
+      font-size: 20px;
+      font-weight: 600;
+      padding: 36px 44px;
+      color: #1f2937;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #e5e7eb;
+      .back-button {
+        margin-right: 44px;
+        width: 33px;
+        height: 33px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(22, 52, 99, 0.05);
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    }
+    .new-password-form-container {
+      width: 100%;
+      padding: 70px 120px;
+      display: flex;
+      align-items: flex-start;
+      .new-password-form {
+        width: 360px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        
+        // .input-group {
+        //   position: relative;
+        //   display: flex;
+        //   align-items: center;
+        //   input {
+        //     width: 100%;
+        //     padding: 12px 44px 12px 16px;
+        //     border: 1px solid #e0e0e0;
+        //     border-radius: 8px;
+        //     font-size: 1rem;
+        //     outline: none;
+        //     transition: border 0.2s;
+        //     background: #fafbfc;
+        //   }
+        //   .eye-icon {
+        //     position: absolute;
+        //     right: 12px;
+        //     top: 50%;
+        //     transform: translateY(-50%);
+        //     cursor: pointer;
+        //     svg {
+        //       width: 22px;
+        //       height: 22px;
+        //       color: #888;
+        //     }
+        //   }
+        // }
+        .input-container{
+            padding: 0;
+            .form-input {
+              height: 40px;
+              border: 2px solid #DFDFDF;
+              border-radius: 8px;
+              padding: 0;
+              font-size: 14px;
+              outline: none;
+              width: 100%;
+              input{
+                border-radius: 8px;
+              }
+              .password-icon{
+                background: transparent;
+                width: 20px;
+              }
+    
+              &::placeholder {
+                color: #aaa;
+              }
+            }
+          }
+  
+          .input-error{
+            color: red;
+            font-size: 12px;
+            text-align: left;
+          }
+  
+          .password-wrapper {
+            position: relative;
+  
+            .eye-icon {
+              position: absolute;
+              right: 12px;
+              top: 10px;
+              cursor: pointer;
+              font-size: 18px;
+            }
+          }
+        .new-password-btn {
+          background-color: #3E8FF8;
+            color: #fff;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            padding: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 15px 0;
+            height: 39px;
+  
+            &:hover {
+              background-color: #1666c1;
+            }
+        }
+      }
+    }
+  }
+}

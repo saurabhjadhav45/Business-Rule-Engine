@@ -1,0 +1,468 @@
+@use 'sass:math';
+@use './_gstVariables' as *;
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+$z-index: (
+  'modal': 9999,
+  'backdrop': 999,
+  'toast': 9999,
+);
+
+// position values
+$position-values: (
+  0: 0,
+  50: 50%,
+  100: 100%,
+);
+
+.not-filled-label {
+  padding: 2px 5px;
+  color: #e12626;
+  background-color: #ffecec;
+  border: solid 1px #ffacac;
+  border-radius: 5px;
+}
+
+// this mixin is use to style the link component hover underline transition comes
+//  wrap the link with className of animate-link  & $color prop is apply for underline transition
+@mixin animate-link($color) {
+  .animated-link {
+    & a {
+      background-size: 200% 100%;
+      background-position: -100%;
+      display: inline-block;
+      @include padding(5px 0);
+      position: relative;
+      color: inherit;
+      transition: all 0.3s ease-in-out;
+    }
+    & a:before {
+      content: '';
+      background: $color;
+      display: block;
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    & a:hover {
+      background-position: 0;
+    }
+
+    & a:hover::before {
+      width: 100%;
+    }
+  }
+}
+
+@function repeat-values($base-property) {
+  @return (
+    (
+      '0': 0,
+      '1': $base-property,
+      '2': $base-property * 2,
+      '3': $base-property * 3,
+      '4': $base-property * 4,
+      '5': $base-property * 5
+    )
+  );
+}
+
+$utilities: (
+  'padding': (
+    'prefix': 'p',
+    'values': repeat-values($base-padding),
+  ),
+  'padding-left': (
+    'prefix': 'pl',
+    'values': repeat-values($base-padding),
+  ),
+  'padding-right': (
+    'prefix': 'pr',
+    'values': repeat-values($base-padding),
+  ),
+  'padding-top': (
+    'prefix': 'pt',
+    'values': repeat-values($base-padding),
+  ),
+  'padding-bottom': (
+    'prefix': 'pb',
+    'values': repeat-values($base-padding),
+  ),
+  'margin': (
+    'prefix': 'm',
+    'values': repeat-values($base-margin),
+  ),
+  'margin-top': (
+    'prefix': 'mt',
+    'values': repeat-values($base-margin),
+  ),
+  'margin-left': (
+    'prefix': 'ml',
+    'values': repeat-values($base-margin),
+  ),
+  'margin-bottom': (
+    'prefix': 'mb',
+    'values': repeat-values($base-margin),
+  ),
+  'margin-right': (
+    'prefix': 'mr',
+    'values': repeat-values($base-margin),
+  ),
+  'border-radius': (
+    'prefix': 'br',
+    'values': (
+      'default': $base-border-radius,
+      'none': 0,
+      'xs': math.div($base-border-radius, 4),
+      'sm': math.div($base-border-radius, 2),
+      'lg': $base-border-radius * 2,
+      'full': 50%,
+      'inherit': inherit,
+    ),
+  ),
+  'display': (
+    'prefix': 'd',
+    'values': (
+      'none': none,
+      'block': block,
+      'flex': flex,
+      'inline': inline,
+      'inline-block': inline-block,
+    ),
+  ),
+  'font-size': (
+    'prefix': 'fs',
+    'values': (
+      'xxsm': $font-size-xxsm,
+      'xsm': $font-size-xsm,
+      'sm': $font-size-sm,
+      'md': $font-size-md,
+      'lg': $font-size-lg,
+      'xl': $font-size-xl,
+      'xxl': $font-size-xxl,
+    ),
+  ),
+  'font-weight': (
+    'prefix': 'fw',
+    'values': (
+      '1': 100,
+      '2': 200,
+      '3': 300,
+      '4': 400,
+      '5': 500,
+      '6': 600,
+      '7': 700,
+      '8': 800,
+      '9': 900,
+    ),
+  ),
+  'flex-direction': (
+    'prefix': 'f-direction',
+    'values': (
+      'col': column,
+      'col-reverse': column-reverse,
+      'row-reverse': row-reverse,
+    ),
+  ),
+  'opacity': (
+    'prefix': 'o',
+    'values': (
+      '10': 0.1,
+      '20': 0.2,
+      '30': 0.3,
+      '40': 0.4,
+      '50': 0.5,
+      '60': 0.6,
+      '70': 0.7,
+      '80': 0.8,
+      '90': 0.9,
+      '100': 1,
+    ),
+  ),
+  'overflow': (
+    'prefix': 'overflow',
+    'values': (
+      'auto': auto,
+      'hidden': hidden,
+      'visible': visible,
+      'scroll': scroll,
+    ),
+  ),
+  'float': (
+    'prefix': 'float',
+    'values': (
+      'start': left,
+      'end': right,
+      'none': none,
+    ),
+  ),
+  'vertical-align': (
+    'prefix': 'align',
+    'values': (
+      'baseline': baseline,
+      'top': top,
+      'middle': middle,
+      'bottom': bottom,
+      'text-bottom': text-bottom,
+      'text-top': text-top,
+    ),
+  ),
+  'align-items': (
+    'prefix': 'align-items',
+    'values': (
+      'start': flex-start,
+      'end': flex-end,
+      'center': center,
+      'baseline': baseline,
+      'stretch': stretch,
+    ),
+  ),
+  'align-content': (
+    'prefix': 'align-content',
+    'values': (
+      'start': flex-start,
+      'end': flex-end,
+      'center': center,
+      'between': space-between,
+      'around': space-around,
+      'stretch': stretch,
+    ),
+  ),
+  'align-self': (
+    'prefix': 'align-self',
+    'values': (
+      'auto': auto,
+      'start': flex-start,
+      'end': flex-end,
+      'center': center,
+      'baseline': baseline,
+      'stretch': stretch,
+    ),
+  ),
+  'order': (
+    'prefix': 'order',
+    'values': (
+      'first': -1,
+      '0': 0,
+      '1': 1,
+      '2': 2,
+      '3': 3,
+      '4': 4,
+      '5': 5,
+      'last': 6,
+    ),
+  ),
+  'flex-wrap': (
+    'prefix': flex,
+    'values': (
+      'wrap': wrap,
+      'nowrap': nowrap,
+      'wrap-reverse': wrap-reverse,
+    ),
+  ),
+  'flex-grow': (
+    'prefix': flex,
+    'values': (
+      'grow-0': 0,
+      'grow-1': 1,
+    ),
+  ),
+  'flex-shrink': (
+    'prefix': flex,
+    'values': (
+      'shrink-0': 0,
+      'shrink-1': 1,
+    ),
+  ),
+  'position': (
+    'prefix': 'position',
+    'values': (
+      'static': static,
+      'relative': relative,
+      'absolute': absolute,
+      'fixed': fixed,
+      'sticky': sticky,
+    ),
+  ),
+  'top': (
+    'prefix': top,
+    'values': $position-values,
+  ),
+  'bottom': (
+    'prefix': bottom,
+    'values': $position-values,
+  ),
+  'left': (
+    'prefix': left,
+    'values': $position-values,
+  ),
+  'right': (
+    'prefix': right,
+    'values': $position-values,
+  ),
+  'transform': (
+    'prefix': translate-middle,
+    values: (
+      default: translate(-50%, -50%),
+      x: translateX(-50%),
+      y: translateY(-50%),
+    ),
+  ),
+);
+
+// generate utility classes
+@each $property, $map in $utilities {
+  $prefix: map-get($map, 'prefix');
+  $values: map-get($map, 'values');
+
+  @each $k, $v in $values {
+    @if ($k == 'default') {
+      .#{$prefix} {
+        #{$property}: $v;
+      }
+    } @else {
+      .#{$prefix}-#{$k} {
+        #{$property}: $v;
+      }
+    }
+  }
+}
+
+$extra-utils: (
+  'font-style1': (
+    'property': font-style,
+    'class': 'fst',
+    'values': (
+      'italic': italic,
+      'normal': normal,
+    ),
+  ),
+  'line-height': (
+    'property': line-height,
+    'class': 'lh',
+    'values': (
+      '1': 1,
+      'sm': $line-height-sm,
+      'base': $line-height-base,
+      'lg': $line-height-lg,
+    ),
+  ),
+  'text-align': (
+    'property': text-align,
+    'class': 'text',
+    'values': (
+      'start': left,
+      'end': right,
+      'center': center,
+    ),
+  ),
+  'text-decoration': (
+    'property': text-decoration,
+    'class': 'text-decoration',
+    'values': (
+      'none': none,
+      'underline': underline,
+      'line-through': line-through,
+    ),
+  ),
+  'text-transform': (
+    'property': text-transform,
+    'class': text,
+    'values': (
+      'lowercase': lowercase,
+      'uppercase': uppercase,
+      'capitalize': capitalize,
+    ),
+  ),
+  'white-space': (
+    'property': white-space,
+    'class': text,
+    'values': (
+      'wrap': normal,
+      'nowrap': nowrap,
+    ),
+  ),
+  'word-wrap': (
+    'property': word-wrap,
+    'class': text,
+    'values': (
+      'break': break-word,
+    ),
+  ),
+  'word-break': (
+    'property': word-wrap,
+    'class': text,
+    'values': (
+      'break': word-break,
+    ),
+  ),
+);
+
+@each $key, $map in $extra-utils {
+  $class: map-get($map, 'class');
+  $property: map-get($map, 'property');
+  $values: map-get($map, 'values');
+
+  @each $k, $v in $values {
+    @if ($k== 'default') {
+      .#{$class} {
+        #{$property}: $v;
+      }
+    } @else {
+      .#{$class}-#{$k} {
+        #{$property}: $v;
+      }
+    }
+  }
+}
+
+//borders
+$borders: border, border-top, border-left, border-right, border-bottom;
+
+//border-radius
+//rounded
+$rounded: top, end, bottom, start, circle;
+
+@each $val in $rounded {
+  .rounded-#{$val} {
+    @if ($val == 'top') {
+      border-top-left-radius: $base-border-radius;
+      border-top-right-radius: $base-border-radius;
+    }
+    @if ($val == 'bottom') {
+      border-bottom-left-radius: $base-border-radius;
+      border-bottom-right-radius: $base-border-radius;
+    }
+    @if ($val == 'start') {
+      border-top-left-radius: $base-border-radius;
+      border-bottom-left-radius: $base-border-radius;
+    }
+    @if ($val == 'end') {
+      border-top-right-radius: $base-border-radius;
+      border-bottom-right-radius: $base-border-radius;
+    }
+    @if ($val == 'circle') {
+      border-radius: 50%;
+    }
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.border-shadow {
+  box-shadow: $base-box-shadow;
+}

@@ -1,0 +1,14 @@
+.header-container {
+  height: 72px;
+  box-shadow: 0 1px 6px rgb(190, 183, 183);
+  position: static;
+  background-color: #002662;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+
+  .logo {
+    color: #ffffff;
+  }
+}

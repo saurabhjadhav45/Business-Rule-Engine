@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# temporarily commented, uncomment it once the project setup completes.
+# yarn test -- --watchAll=false
